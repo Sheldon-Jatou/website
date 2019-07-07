@@ -4,16 +4,20 @@
 <meta charset="UTF-8">
 <head>
 <meta name="viewport" contents="width=device-width, initial-scale=1">
+
+<!--style sheet-->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <style type="text/css">
 
 body{
 	margin:0;
+	background-color:lightgrey;
 }
 
 ul{
 	position: fixed;
-	width: 100%;
-	list-style-type: none;
+	width: 100%; list-style-type: none;
 	margin:0;
 	padding: 0;
 	top: 0;
@@ -50,42 +54,108 @@ p{
 	font-family: "Arial";
 }
 
+.over-text{
+	text-align: center;
+	position:absolute;
+	color:white;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+}
+
+.row:after {
+	content: "";
+	display:table;
+	clear:both;
+}
+
+.column{
+	float:left;
+	width:50%;
+	padding:10px;
+}
+
+@media screen and (max-width: 600px){
+	.column{
+		width:100%;
+	}
+}
+
 </style>
 
 </head>
 
 <body>
-<!--NAVIGATION BAR-->
-<ul>
-	<li><a href=#top>Top</a></li>
-	<li><a href="#about">About</a></li>
-	<li><a href="#projects">Projects</a></li>
-	<li><a href="#contact">Contact</a></li>
-</ul>
 
+<!--TOP-->
+<div id="top" style="position:relative">
+	<!--NAVIGATION BAR-->
+	<ul>
+		<li><a href=#top>Top</a></li>
+		<li><a href="#about">About</a></li>
+		<li><a href="#employment">Employment</a></li>
+		<li><a href="#projects">Projects</a></li>
+		<li><a href="#contact">Contact</a></li>
+		<li style="float:right"><a href="https://www.linkedin.com/in/sheldon-jatou-82553515b/">LinkedIn</a></li>
+	</ul>
 
-<div id="top"><img src="toronto.png" style="width:100%; height:auto"></div>
+	<!--image and text-->
+	<img src="toronto.png" style="width:100%; height:auto">
+	<div class="over-text">
+		<h1>SHELDON JATOU</h1>
+		<h2>Computer Science, Mathematics, Statistics, University of Toronto</h2>
+	</div> <!--/over-text-->	
+</div> <!--/top-->
 
 <!--ABOUT-->
 <div id="about">
 	<h1>About</h1>
 	<p>
 		Hello there, and welcome to my website! Here you'll find relavent information about 
-		myself, including education, personal projects, and other interests.<br>
+		myself, including; education, past employment, personal projects, and other interests.
+		<br>
 		<br>
 		To start, I am currently attending UofT in Mississauga pursuing a Bachelor of Science
 		degree in Computer Science, with minors in Mathematics and Statistics.<br>
 		<br>
-		Course work includes (but is not limited to); advanced data structures and algorithms, 
+		Course work includes; advanced data structures and algorithms, 
 		computiability and complexity theory, software design in Python, C, Java, and other 
-		languages, operating systems, computer networking, databases and web development, 
+		languages, operating systems, computer networking, databases, web development, 
 		and more!<br>
 	</p>
-</div>
+</div> <!--/about-->
 
-<div id="projects">
-	<img src="keyboard.png" style="width:100%; height:auto">
-</div>
+<!--EMPLOYMENT-->
+<div id="employment">
+	<h1>Employment</h1>
+	<div class="row">
+		<div class="column">
+			<h2>Siemens - May 2018 - August 2018, Vaughan ON</h2>
+			<p>
+				Designed and implemented several scripts in Bash and Perl for internal testing
+				equipment.<br>
+				Planned and executed research projects for productr capability characterization
+				for various dynamic routing protocols, then delivered final presentation on
+				results.<br>
+				Worked in a team of developers in an agile enviroment, participating in daily
+				scrum meetings.<br>
+				Quickly learned routing and networking concepts necessary for work.
+			</p>
+		</div> <!--/column-->
+		<div class="column">
+			<h2>Salvation Army Thrift Store - April 2015 - Feburary 2016, Milton ON</h2>
+			<p>
+				Responsible for store organization, customer service, cash register, accepting
+				and sorting donations, and store closing involving cash handling and data entry.
+				<br>
+				Demonstated excellent communication skills with customers and team members<br>
+				Displayed high motivation to complete all tasks with a team or alone.
+			</p>
+		</div> <!--/column-->
+	</div><!--/row-->
+
+
+</div> <!--/projects-->
 
 </body>
 
