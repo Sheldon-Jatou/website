@@ -7,8 +7,13 @@
 
 <!--style sheet-->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+<!--custom styles-->
 <style type="text/css">
+html{
+	scroll-behavior: smooth;
+}
 
 body{
 	margin:0;
@@ -23,6 +28,7 @@ ul{
 	top: 0;
 	overflow: hidden;
 	background-color: #333;
+	z-index:2;
 }
 
 li{
@@ -41,11 +47,15 @@ li a:hover{
 	background-color: grey;	
 }
 
-h1{
+.title{
 	padding: 10px;
 	font-family: "Arial";
-	border-bottom-style: solid;
-	border-bottom-color: grey;
+}
+
+.bordered{
+	padding: 10px;
+	font-family: "Arial";
+	border-bottom: solid grey;
 }
 
 p{
@@ -58,9 +68,11 @@ p{
 	text-align: center;
 	position:absolute;
 	color:white;
-	top:50%;
+	top:40%;
 	left:50%;
-	transform:translate(-50%, -50%);
+	transform:translate(-50%, -40%);
+	width:100%;
+	z-index:1;
 }
 
 .row:after {
@@ -80,36 +92,53 @@ p{
 		width:100%;
 	}
 }
-
 </style>
-
 </head>
 
 <body>
-
 <!--TOP-->
 <div id="top" style="position:relative">
-	<!--NAVIGATION BAR-->
-	<ul>
-		<li><a href=#top>Top</a></li>
-		<li><a href="#about">About</a></li>
-		<li><a href="#employment">Employment</a></li>
-		<li><a href="#projects">Projects</a></li>
-		<li><a href="#contact">Contact</a></li>
-		<li style="float:right"><a href="https://www.linkedin.com/in/sheldon-jatou-82553515b/">LinkedIn</a></li>
-	</ul>
+	<!--navigation bar-->
+	<div id="navbar">
+		<ul>
+			<li><a href=#top>Top</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#employment">Employment</a></li>
+			<li><a href="#projects">Projects</a></li>
+			<li><a href="#contact">Contact</a></li>
+			<li style="float:right"><a href="https://www.linkedin.com/in/sheldon-jatou-82553515b/">LinkedIn</a></li>
+			<li style="float:right"><a href="https://github.com/Sheldon-Jatou">GitHub</a></li>
+		</ul>
+	</div> <!--/navbar-->
 
 	<!--image and text-->
-	<img src="toronto.png" style="width:100%; height:auto">
+	<img src="media/toronto.png" style="width:100%; height:auto">
 	<div class="over-text">
-		<h1>SHELDON JATOU</h1>
+		<h1 class="title">SHELDON JATOU</h1>
 		<h2>Computer Science, Mathematics, Statistics, University of Toronto</h2>
 	</div> <!--/over-text-->	
 </div> <!--/top-->
 
+<!-- navbar script actions -->
+<script type="text/javascript">
+	var prevScroll=window.pageYOffset;
+
+	// Hide navbar on scroll
+	window.onscroll = function(){
+		var currentScroll=window.pageYOffset;
+		if(prevScroll <= currentScroll){
+			document.getElementById("navbar").style.display="none";
+		}else{
+			document.getElementById("navbar").style.display="block";
+		}
+		prevScroll=currentScroll;
+	}
+</script>
+
+
 <!--ABOUT-->
 <div id="about">
-	<h1>About</h1>
+	<h1 class="bordered">About</h1>
 	<p>
 		Hello there, and welcome to my website! Here you'll find relavent information about 
 		myself, including; education, past employment, personal projects, and other interests.
@@ -127,7 +156,7 @@ p{
 
 <!--EMPLOYMENT-->
 <div id="employment">
-	<h1>Employment</h1>
+	<h1 class="bordered">Employment</h1>
 	<div class="row">
 		<div class="column">
 			<h2>Siemens - May 2018 - August 2018, Vaughan ON</h2>
@@ -153,10 +182,53 @@ p{
 			</p>
 		</div> <!--/column-->
 	</div><!--/row-->
+</div> <!--/employment-->
 
+<!--PROJECTS-->
+<div id="projects">
+	<h1 class="bordered">Projects</h1>
+	<p>
+		Projects listed on my <a href="https://github.com/Sheldon-Jatou">GitHub</a> include; <br>
+		<b>Hangman (Python)</b> a command line version of the hangman game I made the
+		summer before my first year of university, as a way to teach myself Python.<br>
+		<b>Weighted Grade Calculator (Python)</b> is a GUI program to determine a final mark
+		in a class based on your grades and their weights, also providing the UofT GPA assocaited
+		with the grade. I made this after my first year of University to teach myself how to
+		make a simple GUI program.<br>
+		<b>Reliable Data Transfer & Distance Vector Algorithms (C)</b> are two class projects
+		done in my third year for my Computer Networking course. Since they are school work, 
+		they were done in private repositories to make working with my partner for the projects
+		easier. They both include reports on the algorithms and their time and space complexity.<br>
+		<br>
+		Academic projects include;<br>
+		<b>EXT2 File System (C)</b> for a third year Operating Systems course, the final project
+		was to implement several command line functions for a simulated EXT2 File System, such 
+		as cat, ls, ln, mv, mkdir, rm , rmdir, and a version of fscheck. Each function involved using and 
+		maintaining the file system's block and inode tables, assigning blocks and inodes to
+		newly created files and directories, and ensuring that the counts of free blocks and
+		inodes remains accurate using bitwise operations on binary strings representing the 
+		file system tables. <br>
 
+		<b>Proxy Server (Python)</b> for a third year Computer Networking course, one project
+		was to create a proxy server in Python. The server would recieve HTTP GET requests 
+		through TCP, modify the request, and forward it to the desitnation. Once the requested
+		files are recieved, the server would place them in the cache for a set amount of time,
+		then finally send the file to the client. If the requested file was first found in the
+		cache, and its timer is not up, then it would be sent to the client without forwarding
+		the request. If the timer is up, the cached file is deleted and the request is made
+		for a fresh version. Part of the project requirements was also to inject HTML into 
+		the file before sending it back to the client to indicate if the file was taken from
+		the cache or if it was fresh.<br>
+	</p>
 </div> <!--/projects-->
 
+<!--CONTACT-->
+<div id="contact">
+	<h1 class="bordered">Contact</h1>
+	<p>
+		Want to get in contact? The best ways are listed here.<br><br>
+		<i class="material-icons">email</i> sheldon.jatou@mail.utoronto.ca
+	</p>
+</div> <!--/contact-->
 </body>
-
 </html> 
