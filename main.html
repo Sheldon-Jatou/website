@@ -8,91 +8,27 @@
 <!--style sheet-->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="style.css">
 
-<!--custom styles-->
-<style type="text/css">
-html{
-	scroll-behavior: smooth;
-}
+<!--javascript-->
+<script type="text/javascript">
 
-body{
-	margin:0;
-	background-color:lightgrey;
-}
+var prevScroll = window.pageYOffset;
 
-ul{
-	position: fixed;
-	width: 100%; list-style-type: none;
-	margin:0;
-	padding: 0;
-	top: 0;
-	overflow: hidden;
-	background-color: #333;
-	z-index:2;
-}
-
-li{
-	float: left;
-}
-
-li a{
-	display: block;
-	color: white;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-}
-
-li a:hover{
-	background-color: grey;	
-}
-
-.title{
-	padding: 10px;
-	font-family: "Arial";
-}
-
-.bordered{
-	padding: 10px;
-	font-family: "Arial";
-	border-bottom: solid grey;
-}
-
-p{
-	padding: 15px;
-	font-size: 20px;
-	font-family: "Arial";
-}
-
-.over-text{
-	text-align: center;
-	position:absolute;
-	color:white;
-	top:40%;
-	left:50%;
-	transform:translate(-50%, -40%);
-	width:100%;
-	z-index:1;
-}
-
-.row:after {
-	content: "";
-	display:table;
-	clear:both;
-}
-
-.column{
-	float:left;
-	width:50%;
-	padding:10px;
-}
-
-@media screen and (max-width: 600px){
-	.column{
-		width:100%;
+window.addEventListener('scroll', function(){
+	var currentScroll=window.pageYOffset;
+	// hide bar
+	if(prevScroll < currentScroll){
+		document.getElementById("navbar").style.top="-50px";
+	// show bar
+	}else{
+		document.getElementById("navbar").style.top="0";
 	}
-}
-</style>
+	prevScroll=currentScroll;
+});
+</script>
+
+
 </head>
 
 <body>
@@ -100,15 +36,13 @@ p{
 <div id="top" style="position:relative">
 	<!--navigation bar-->
 	<div id="navbar">
-		<ul>
-			<li><a href=#top>Top</a></li>
-			<li><a href="#about">About</a></li>
-			<li><a href="#employment">Employment</a></li>
-			<li><a href="#projects">Projects</a></li>
-			<li><a href="#contact">Contact</a></li>
-			<li style="float:right"><a href="https://www.linkedin.com/in/sheldon-jatou-82553515b/">LinkedIn</a></li>
-			<li style="float:right"><a href="https://github.com/Sheldon-Jatou">GitHub</a></li>
-		</ul>
+		<a href=#top>Top</a>
+		<a href="#about">About</a>
+		<a href="#employment">Employment</a>
+		<a href="#projects">Projects</a>
+		<a href="#contact">Contact</a>
+		<a style="float:right;" href="https://www.linkedin.com/in/sheldon-jatou-82553515b/">LinkedIn</a>
+		<a style="float:right;" href="https://github.com/Sheldon-Jatou">GitHub</a>
 	</div> <!--/navbar-->
 
 	<!--image and text-->
@@ -119,30 +53,12 @@ p{
 	</div> <!--/over-text-->	
 </div> <!--/top-->
 
-<!-- navbar script actions -->
-<script type="text/javascript">
-	var prevScroll=window.pageYOffset;
-
-	// Hide navbar on scroll
-	window.onscroll = function(){
-		var currentScroll=window.pageYOffset;
-		if(prevScroll <= currentScroll){
-			document.getElementById("navbar").style.display="none";
-		}else{
-			document.getElementById("navbar").style.display="block";
-		}
-		prevScroll=currentScroll;
-	}
-</script>
-
-
 <!--ABOUT-->
 <div id="about">
 	<h1 class="bordered">About</h1>
 	<p>
 		Hello there, and welcome to my website! Here you'll find relevant information about 
-		myself, including; education, past employment, personal projects, and other interests.
-		<br>
+		myself, including; education, past employment, personal projects, and other interests.<br>
 		<br>
 		To start, I am currently attending UofT in Mississauga pursuing a Bachelor of Science
 		degree in Computer Science, with minors in Mathematics and Statistics.<br>
@@ -197,15 +113,16 @@ p{
 		with the grade. I made this after my first year of University to teach myself how to
 		make a simple GUI program.<br>
 		<br>
-		<b>Reliable Data Transfer & Distance Vector Algorithms (C)</b> are two class projects
-		done in my third year for my Computer Networking course. Since they are school work, 
+		<b>Reliable Data Transfer & Distance Vector Algorithms (Python/C)</b> are two class projects
+		done for a third year computer networking course. Since they are school work, 
 		they were done in private repositories to make working with my partner for the projects
-		easier. They both include reports on the algorithms and their time and space complexity.<br>
+		easier. Both projects involved implementing the respective algorithm in Python or C. 
+		They both include reports on the algorithms and their time and space complexity.<br>
 		<br>
 		Academic projects include;<br>
 		<b>EXT2 File System (C)</b> for a third year Operating Systems course, the final project
 		was to implement several command line functions for a simulated EXT2 File System, such 
-		as cat, ls, ln, mv, mkdir, rm , rmdir, and a version of fscheck. Each function involved using and 
+		as cat, ls, ln, mv, mkdir, rm, rmdir, and a version of fscheck. Each function involved using and 
 		maintaining the file system's block and inode tables, assigning blocks and inodes to
 		newly created files and directories, and ensuring that the counts of free blocks and
 		inodes remains accurate using bitwise operations on binary strings representing the 
@@ -237,7 +154,7 @@ p{
 		job and return the results through a pipe to the main server, and finally to each client
 		that requested the job. Clients could request a list of possible jobs and those currently
 		running, as well as request to see output from any running job. This was all done by 
-		creating a TCP connecting in C for the clients and server to communicate.<br>
+		creating a TCP connection in C for the clients and server to communicate.<br>
 	</p>
 </div> <!--/projects-->
 
@@ -249,5 +166,10 @@ p{
 		<i class="material-icons">email</i> sheldon.jatou@mail.utoronto.ca
 	</p>
 </div> <!--/contact-->
+
+<!--Back to Top-->
+<div style="text-align:center">
+	<a href=#top style="text-decoration: none">^<br>Back to Top</a>
+</div>
 </body>
 </html> 
